@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "dev.configspawners.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8.5",
+  "mixins": [
+    "SpawnerLogicMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

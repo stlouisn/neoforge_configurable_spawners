@@ -1,0 +1,15 @@
+{
+	"configspawners.configuration.title": "Configurable Spawners",
+	"configspawners.configuration.section.configspawners.common.toml": "Common Settings",
+	"configspawners.configuration.section.configspawners.common.toml.title": "Configurable Spawners",
+	"configspawners.configuration.spawnDelay": "Spawn Delay",
+	"configspawners.configuration.spawnDelay.tooltip": "Determines both minimum and maximum delays between spawns.",
+	"configspawners.configuration.spawnCount": "Spawn Count",
+	"configspawners.configuration.spawnCount.tooltip": "The maximum number of entities to spawn per wave.",
+	"configspawners.configuration.maxNearbyEntities": "Max Nearby Entities",
+	"configspawners.configuration.maxNearbyEntities.tooltip": "The maximum number of entities that can be loaded around the spawner.",
+	"configspawners.configuration.requiredPlayerRange": "Required Player Range",
+	"configspawners.configuration.requiredPlayerRange.tooltip": "The minimum range required for the spawner to become active.",
+	"configspawners.configuration.spawnRange": "Spawn Range",
+	"configspawners.configuration.spawnRange.tooltip": "The maximum range from the spawner where entities can spawn."
+}
