@@ -1,0 +1,26 @@
+# eclipse
+eclipse
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea/*
+!.idea/dictionaries
+
+# gradle
+build
+.gradle
+
+# architectury
+.architectury-transformer
+
+# minecraft
+run
+runs
