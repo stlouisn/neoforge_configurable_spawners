@@ -60,6 +60,7 @@ processResources {
 }
 
 jar {
+  preserveFileTimestamps = true
   manifest {
     attributes(
         [
@@ -75,4 +76,7 @@ jar {
   }
 }
 
-remapJar { destinationDirectory.set(file("${rootDir}/files")) }
+remapJar {
+  preserveFileTimestamps = true
+  destinationDirectory.set(file("${rootDir}/files"))
+}
