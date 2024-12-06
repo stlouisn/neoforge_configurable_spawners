@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name} [F] [C]",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contact": {
+    "homepage": "${url_homepage}",
+    "sources": "${git_sources}",
+    "issues": "${git_issues}"
+  },
+  "license": "${mod_license}",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.configspawners.ConfigSpawners"
+    ],
+    "modmenu": [
+      "dev.configspawners.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "configspawners.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": ">=${minecraft_version}"
+  },
+  "recommends": {
+    "modmenu": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.website": "${url_homepage}"
+      }
+    }
+  }
+}

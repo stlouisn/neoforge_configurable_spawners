@@ -1,4 +1,4 @@
-package dev.configspawners.utils;
+package dev.configspawners;
 
 public final class ModConstants {
 

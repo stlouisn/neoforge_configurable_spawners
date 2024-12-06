@@ -1,43 +1,42 @@
 package dev.configspawners.config;
 
-import net.neoforged.neoforge.common.ModConfigSpec;
-import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
+import dev.configspawners.ModConstants;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.autoconfig.annotation.ConfigEntry.BoundedDiscrete;
+import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.Tooltip;
 
-public final class ConfigHandler {
+@Config(name = ModConstants.MOD_ID)
+public class ConfigHandler implements ConfigData {
 
-  public static final ModConfigSpec configSpec;
+  @Tooltip
+  @BoundedDiscrete(min = 10, max = 30)
+  public int spawnDelay = 20;
 
-  public static ConfigValue<Integer> spawnDelay;
-  public static ConfigValue<Integer> spawnCount;
-  public static ConfigValue<Integer> maxNearbyEntities;
-  public static ConfigValue<Integer> requiredPlayerRange;
-  public static ConfigValue<Integer> spawnRange;
+  @Tooltip
+  @BoundedDiscrete(min = 2, max = 30)
+  public int spawnCount = 4;
 
-  static {
+  @Tooltip
+  @BoundedDiscrete(min = 2, max = 12)
+  public int maxNearbyEntities = 7;
 
-    ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
+  @Tooltip
+  @BoundedDiscrete(min = 16, max = 64)
+  public int requiredPlayerRange = 16;
 
-    spawnDelay = builder
-        .comment("Determines both minimum and maximum delays between spawns.\nDefault: 20")
-        .defineInRange("spawnDelay", 20, 10, 30);
+  @Tooltip
+  @BoundedDiscrete(min = 4, max = 16)
+  public int spawnRange = 4;
 
-    spawnCount = builder
-        .comment("The maximum number of entities to spawn per wave.\nDefault: 4")
-        .defineInRange("spawnCount", 4, 2, 6);
-
-    maxNearbyEntities = builder
-        .comment("The maximum number of entities that can be loaded around the spawner.\nDefault: 7")
-        .defineInRange("maxNearbyEntities", 7, 2, 12);
-
-    requiredPlayerRange = builder
-        .comment("The minimum range required for the spawner to become active.\nDefault: 16")
-        .defineInRange("requiredPlayerRange", 16, 16, 64);
-
-    spawnRange = builder
-        .comment("The maximum range from the spawner where entities can spawn.\nDefault: 4")
-        .defineInRange("spawnRange", 4, 4, 16);
-
-    configSpec = builder.build();
-
+  public static void init() {
+    AutoConfig.register(ConfigHandler.class, Toml4jConfigSerializer::new);
   }
+
+  public static ConfigHandler getInstance() {
+    return AutoConfig.getConfigHolder(ConfigHandler.class).getConfig();
+  }
+
 }

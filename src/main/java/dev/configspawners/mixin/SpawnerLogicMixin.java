@@ -21,12 +21,12 @@ public class SpawnerLogicMixin {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void modifySpawnDelays(CallbackInfo ci) {
-        this.spawnDelay          = ConfigHandler.spawnDelay.get();
-        this.minSpawnDelay       = ConfigHandler.spawnDelay.get() * 10;
-        this.maxSpawnDelay       = ConfigHandler.spawnDelay.get() * 40;
-        this.spawnCount          = ConfigHandler.spawnCount.get();
-        this.maxNearbyEntities   = ConfigHandler.maxNearbyEntities.get();
-        this.requiredPlayerRange = ConfigHandler.requiredPlayerRange.get();
-        this.spawnRange          = ConfigHandler.spawnRange.get();
+        this.spawnDelay          = ConfigHandler.getInstance().spawnDelay;
+        this.minSpawnDelay       = spawnDelay * 10;
+        this.maxSpawnDelay       = spawnDelay * 40;
+        this.spawnCount          = ConfigHandler.getInstance().spawnCount;
+        this.maxNearbyEntities   = ConfigHandler.getInstance().maxNearbyEntities;
+        this.requiredPlayerRange = ConfigHandler.getInstance().requiredPlayerRange;
+        this.spawnRange          = ConfigHandler.getInstance().spawnRange;
     }
 }
